@@ -81,6 +81,7 @@
     <Compile Include="Assets\GameScene\EnvironGenerator\script\TankCreator.cs" />
     <Compile Include="Assets\GameScene\Prefabs\Planets\PlanetSimulator.cs" />
     <Compile Include="Assets\GameScene\Prefabs\Tanks\Shot.cs" />
+    <Compile Include="Assets\GameScene\Prefabs\Tanks\Tank.cs" />
     <Compile Include="Assets\GameScene\script\GameSceneManager.cs" />
     <Compile Include="Assets\GlobalElements\script\GlobalManager.cs" />
     <Compile Include="Assets\GlobalElements\script\PlayerData.cs" />

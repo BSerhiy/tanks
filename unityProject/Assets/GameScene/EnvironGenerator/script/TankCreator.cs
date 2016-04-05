@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 namespace GameScene.EnvironGenerator
 {
     public class TankCreator : MonoBehaviour
     {
+        [SerializeField] private GameObject[] tankPrefabs = new GameObject[] { };
 
-        // Use this for initialization
-        void Start()
+
+        private Vector3 targetPos = new Vector3(0,31,0);
+
+        public void CreateTank(int id, int count, Action callback)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            for(int i=0; i<count; i++)
+            {
+                GameObject tank = Instantiate(tankPrefabs[id], targetPos, Quaternion.identity) as GameObject;
+                tank.name = "Tank";
+            }
         }
     }
 }

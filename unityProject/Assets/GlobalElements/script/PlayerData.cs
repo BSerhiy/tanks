@@ -11,5 +11,8 @@
 
         private int tanksCount = 1;
         public int TanksCount { get { return tanksCount; } set { tanksCount = value; } }
+
+        private int tanksID = 0;
+        public int TanksID { get { return tanksID; } set { tanksID = value; } }
     }
 }

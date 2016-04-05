@@ -7,13 +7,12 @@ namespace GameScene
 {
     public class GameSceneManager : MonoBehaviour
     {
-        [SerializeField] private EIEnvironGenerator EIEnvironGen;
+        [SerializeField] private GameObject EIEnvironGen;
 
         void Start()
         {
-            
-        }
-
-        
+            GameObject generator = Instantiate(EIEnvironGen);
+            generator.GetComponent<EIEnvironGenerator>().Init();
+        }      
     }
 }

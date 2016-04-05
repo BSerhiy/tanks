@@ -18,13 +18,11 @@ namespace GlobalElement
             // if the singleton hasn't been initialized yet
             if (instance != null)
             {
-                Debug.Log("Экземпляр синглтона уже есть");
                 Destroy(this.gameObject);
                 return;
             }
             else
             {
-                Debug.Log("Новый синглтон");
                 _playerData = new PlayerData();
 
                 instance = this;

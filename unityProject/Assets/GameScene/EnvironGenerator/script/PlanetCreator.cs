@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 namespace GameScene.EnvironGenerator
 {
@@ -7,7 +7,7 @@ namespace GameScene.EnvironGenerator
     {
         [SerializeField] private GameObject[] planetPrefabs = new GameObject[] { };
 
-        public void CreatePlanet(int id)
+        public void CreatePlanet(int id, Action callback)
         {
             GameObject planet = Instantiate(planetPrefabs[id], Vector3.zero, Quaternion.identity) as GameObject;
             planet.name = "Planet";
