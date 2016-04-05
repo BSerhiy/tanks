@@ -15,5 +15,4 @@ public class TestMenuScene : MonoBehaviour
         globalManager._PlayerData.TanksCount = 1;
         SceneManager.LoadSceneAsync("game");
     }
-
 }
