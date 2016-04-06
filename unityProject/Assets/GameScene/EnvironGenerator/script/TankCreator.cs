@@ -9,14 +9,16 @@ namespace GameScene.EnvironGenerator
 
 
         private Vector3 targetPos = new Vector3(0,31,0);
+        private Quaternion targetRotation = Quaternion.identity;
 
-        public void CreateTank(int id, int count, Action callback)
+        public void Create (int id, int count, Action callback)
         {
             for(int i=0; i<count; i++)
             {
-                GameObject tank = Instantiate(tankPrefabs[id], targetPos, Quaternion.identity) as GameObject;
+                GameObject tank = Instantiate(tankPrefabs[id], targetPos, targetRotation) as GameObject;
                 tank.name = "Tank";
             }
+            callback();
         }
-    }
+}
 }

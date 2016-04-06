@@ -6,36 +6,38 @@ namespace GameScene.EnvironGenerator
 
     public class EIEnvironGenerator : MonoBehaviour
     {
-        [SerializeField] private GameObject planetCreator;
-        [SerializeField] private TankCreator tankCreator;
-        [SerializeField] private BarrierCreator barrierCreator;
+        [SerializeField] private GameObject planetCreatorPrefab, tankCreatorPrefab, barrierCreatorPrefab;
+
+        private PlanetCreator planetCreator;
+        private TankCreator tankCreator;
+        private BarrierCreator barrierCreator;
 
 
         public void Init()
         {
+            planetCreator = Instantiate(planetCreatorPrefab).GetComponent<PlanetCreator>();
+            tankCreator = Instantiate(tankCreatorPrefab).GetComponent<TankCreator>();
+            barrierCreator = Instantiate(barrierCreatorPrefab).GetComponent<BarrierCreator>();
+
             CreatePlanet();
         }
 
         public void CreatePlanet()
         {
-            //Не срабатывает CallBack
-            GameObject go = Instantiate(planetCreator);
-            PlanetCreator planCreat = go.GetComponent<PlanetCreator>();
-            planCreat.CreatePlanet(GlobalManager.Instance._PlayerData.PlanetID, TestCall);
-        }
-
-        public void TestCall()
-        {
-            Debug.Log("Сработал callback");
+            planetCreator.CreatePlanet(GlobalManager.Instance._PlayerData.PlanetID, CreateTanks);
         }
 
         public void CreateTanks()
         {
-            Debug.Log("Create tank");
-            tankCreator.CreateTank(0,0,CreateBarriers);
+            tankCreator.Create(0,1,CreateBarriers);
         }
 
         private void CreateBarriers()
+        {
+            barrierCreator.Create(0, 1, EndOfCreating);
+        }
+
+        private void EndOfCreating()
         {
 
         }

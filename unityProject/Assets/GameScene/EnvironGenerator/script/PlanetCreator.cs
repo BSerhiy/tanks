@@ -11,6 +11,7 @@ namespace GameScene.EnvironGenerator
         {
             GameObject planet = Instantiate(planetPrefabs[id], Vector3.zero, Quaternion.identity) as GameObject;
             planet.name = "Planet";
+            callback();
         }
     }
 }
