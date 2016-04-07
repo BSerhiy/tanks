@@ -1,0 +1,2 @@
+Kit markers to generate arrays of dots for spawn game elements (tanks and barriers)
+Taking such a point, and knowing her a global rotation, we shot from the center of the planet with raycast, define the intersection of the ray with the collider, and in this place will put a tank or an obstacle
