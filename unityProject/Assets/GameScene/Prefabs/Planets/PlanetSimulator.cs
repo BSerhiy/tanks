@@ -56,10 +56,14 @@ public class PlanetSimulator : MonoBehaviour
         myRigidbody.useGravity = false;
         myRigidbody.isKinematic = true;
 
+        //added surface of planet
+        planetObject.AddComponent<MeshCollider>();
+
+        //added atmosphere
         planetObject.AddComponent<SphereCollider>();
         atmosphereLimit = gameObject.GetComponent<SphereCollider>();
         atmosphereLimit.isTrigger = true;
-        atmosphereLimit.radius = atmosphereSize* atmosphereLimit.radius/ atmosphereLimit.bounds.extents.x;          //set real atmosphere size
+        atmosphereLimit.radius = atmosphereLimit.radius * 3;            //atmosphere radius = 3*planetRadius
 
     }
 
