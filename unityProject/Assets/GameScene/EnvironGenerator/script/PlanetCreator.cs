@@ -7,11 +7,10 @@ namespace GameScene.EnvironGenerator
     {
         [SerializeField] private GameObject[] planetPrefabs = new GameObject[] { };
 
-        public void CreatePlanet(int id, Action callback)
+        public void CreatePlanet(int id)
         {
             GameObject planet = Instantiate(planetPrefabs[id], Vector3.zero, Quaternion.identity) as GameObject;
             planet.name = "Planet";
-            callback();
         }
     }
 }
